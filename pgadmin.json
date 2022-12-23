@@ -1,0 +1,31 @@
+{
+  "family": "pgadmin4",
+  "cpu": "1024",
+  "memory": "2GB",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "containerDefinitions": [
+    {
+      "name": "pgadmin",
+      "image": "dpage/pgadmin4",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        {
+          "name": "PGADMIN_DEFAULT_EMAIL",
+          "value": "EMAIL"
+        },
+        {
+          "name": "PGADMIN_DEFAULT_PASSWORD",
+          "value": "PASSWORD"
+        }
+      ]
+    }
+  ]
+}
