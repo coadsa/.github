@@ -355,6 +355,25 @@ Tags: PROJECT = boilerplate-dev
 
 **Evaluate target health:** true
 
+
+## API Gateway
+
+**On:** [Amazon Console](https://us-east-1.console.aws.amazon.com/apigateway/main/publish/domain-names/create?region=us-east-1)
+
+**Domain name:** mizu.api.dev.adsa.co
+
+**TLS 1.2 (recommended):** true
+
+**Endpoint type:** Edge-optimized (supports only REST APIs)
+
+**ACM certificate:** *.dev.adsa.co
+
+**Tags:** PROJECT = mizu-dev
+
+**API mappings:** 
+- **API:** dev-boilerplate-api
+- **Stage:** dev
+
 ## Dedicated database
 
 ```
