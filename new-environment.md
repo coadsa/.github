@@ -338,7 +338,25 @@ Tags: PROJECT = boilerplate-dev
 
 **Do not adjust the service’s desired count:** true
 
-## Route 53 configuration
+## API Gateway
+
+**On:** [Amazon Console](https://us-east-1.console.aws.amazon.com/apigateway/main/publish/domain-names/create?region=us-east-1)
+
+**Domain name:** mizu.api.dev.adsa.co
+
+**TLS 1.2 (recommended):** true
+
+**Endpoint type:** Regional
+
+**ACM certificate:** *.dev.adsa.co
+
+**Tags:** PROJECT = boilerplate-dev
+
+**API mappings:** 
+- **API:** dev-boilerplate-api
+- **Stage:** dev
+
+## Route 53 configuration for hasura
 
 **On:** [Amazon Console](https://us-east-1.console.aws.amazon.com/route53/v2/hostedzones#)
 
@@ -355,24 +373,22 @@ Tags: PROJECT = boilerplate-dev
 
 **Evaluate target health:** true
 
+## Route 53 configuration for API
 
-## API Gateway
+**On:** [Amazon Console](https://us-east-1.console.aws.amazon.com/route53/v2/hostedzones#)
 
-**On:** [Amazon Console](https://us-east-1.console.aws.amazon.com/apigateway/main/publish/domain-names/create?region=us-east-1)
+**Record name:** boilerplate.api.dev
 
-**Domain name:** mizu.api.dev.adsa.co
+**Alias:** true
 
-**TLS 1.2 (recommended):** true
+**Route traffic to:** 
+- Alias to API Gateway API
+- us-east-1
+- boilerplate-dev-api
 
-**Endpoint type:** Edge-optimized (supports only REST APIs)
+**Routing policy:** Simple routing
 
-**ACM certificate:** *.dev.adsa.co
-
-**Tags:** PROJECT = mizu-dev
-
-**API mappings:** 
-- **API:** dev-boilerplate-api
-- **Stage:** dev
+**Evaluate target health:** true
 
 ## Dedicated database
 
